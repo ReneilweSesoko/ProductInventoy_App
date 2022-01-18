@@ -6,7 +6,7 @@ const db = require("./models");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:4200"
+  origin: "http://localhost:4500"
 };
 
 app.use(cors(corsOptions));
@@ -32,7 +32,7 @@ db.mongoose
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Hello world :)hygu" });
+  res.json({ message: "Welcome To Product Inventory" });
 });
 
 app.get("/khet", (req, res) => {

@@ -1,1 +1,67 @@
-<p>add-product works!</p>
+<div class="container">
+    <div class="add-form mt-3" *ngIf="!submitted">
+        <p class="display-6 text-center fw-bold">Add Product</p>
+        <form #f="ngForm" (ngSubmit)="saveProduct(f)" novalidate class="border border-3 rounded-3 p-4 shadow bg-white gap-2" style="max-width: 400px; margin: auto;">
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" [(ngModel)]="product.name" name="name" #name="ngModel" class="form-control" required>
+            </div>
+            <div *ngIf="name.touched && name.invalid">
+                <div class="text-danger">
+                    Please Enter Valid a Name
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="">SKU</label>
+                <input type="text" [(ngModel)]="product.sku" name="sku" #sku="ngModel" class="form-control" required>
+            </div>
+            <div *ngIf="sku.touched && sku.invalid">
+                <div class="text-danger">
+                    Please Enter Valid SKU
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="">Description</label>
+                <input type="text" [(ngModel)]="product.description" name="description" #description="ngModel" class="form-control" required>
+            </div>
+            <div *ngIf="description.touched && description.invalid">
+                <div class="text-danger">
+                    Please Enter Valid description
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="">Price</label>
+                <input type="text" [(ngModel)]="product.price" name="price" #price="ngModel" class="form-control" required>
+            </div>
+            <div *ngIf="price.touched && price.invalid">
+                <div class="text-danger">
+                    Please Enter Valid Price
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="">Stock</label>
+                <input type="text" [(ngModel)]="product.stock" name="stock" #stock="ngModel" class="form-control" required>
+            </div>
+            <div *ngIf="stock.touched && stock.invalid">
+                <div class="text-danger">
+                    Please Enter Valid SKU
+                </div>
+            </div>
+
+            <div class="d-grid mt-3">
+                <button class="btn btn-success" [disabled]="f.invalid">Submit</button>
+              </div>
+        </form>
+        
+    </div>
+
+    <div *ngIf="submitted">
+        <h1 class="text-center mt-5">Product Added Successfully!</h1>
+        <img src="/assets/business-3d-305.png" alt="" class="" style="max-height: 200px; max-width: 200px;">
+        <button class="btn btn-success" (click)="newProduct()">Add</button>
+    </div>
+</div>

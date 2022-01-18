@@ -3,9 +3,12 @@ module.exports = mongoose => {
       "tutorial",
       mongoose.Schema(
         {
-          title: String,
+          name: String,
           description: String,
-          published: Boolean
+          sku: String,
+          price: Number,
+          stock: Number
+          
         },
         { timestamps: true }
       )

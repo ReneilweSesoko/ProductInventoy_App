@@ -1,1 +1,56 @@
-<h4 class="display-4 text-center">Product Inventory</h4>
+<div class="container">
+
+    <div *ngIf="viewMode; else editable">
+        <div *ngIf="!currentProduct">
+          <br />
+          <p>Please click Edit on a Product</p>
+        </div>
+    </div>
+
+
+    <ng-template #editable>
+        <div *ngIf="currentProduct._id">
+            <h2 class="tdisplay-6 text-center fw-bold m-3">Update Product</h2>
+            <form class="border border-3 rounded-3 p-4 shadow bg-white" style="max-width: 400px; margin: auto;">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" [(ngModel)]="currentProduct.name" name="name" #name="ngModel" class="form-control">
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="">SKU</label>
+                    <input type="text" [(ngModel)]="currentProduct.sku" name="sku" #sku="ngModel" class="form-control">
+                </div>
+                
+
+                <div class="form-group mt-3">
+                    <label for="">Description</label>
+                    <input type="text" [(ngModel)]="currentProduct.description" name="description" #description="ngModel" class="form-control">
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="">Price</label>
+                    <input type="text" [(ngModel)]="currentProduct.price" name="price" #price="ngModel" class="form-control">
+                </div>
+                
+                <div class="form-group mt-3">
+                    <label for="">Stock</label>
+                    <input type="text" [(ngModel)]="currentProduct.stock" name="stock" #stock="ngModel" class="form-control">
+                </div>
+            
+        
+                <!-- <button class="btn btn-danger m-2" (click)="deleteTutorial()">
+                Delete
+                </button> -->
+            
+                <button
+                type="submit"
+                class="btn btn-success m-2"
+                (click)="updateProduct()"
+                >
+                Update
+                </button>
+            </form>
+        </div>
+    </ng-template>
+</div>

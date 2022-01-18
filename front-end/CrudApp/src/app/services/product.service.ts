@@ -29,7 +29,7 @@ export class ProductService {
 
   //update using id
   update(id: any, data: any): Observable<any>{
-    return this.http.put<Product[]>(baseUrl + '/', data)
+    return this.http.put<Product[]>(baseUrl + '/' + id, data)
   }
 
   //delete by id
